@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+<head>
+    <title>AngularJS Chat App</title>
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <!-- Include your app.js file -->
+    <script src="app.js"></script>
+</head>
+<body ng-controller="ChatController">
+    <div>
+        <ul>
+            <!-- Repeat for each message in the messages array -->
+            <li ng-repeat="message in messages">{{ message }}</li>
+        </ul>
+        <input type="text" ng-model="newMessage" />
+        <button ng-click="sendMessage()">Send</button>
+    </div>
+</body>
+</html>
