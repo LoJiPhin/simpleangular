@@ -11,3 +11,8 @@ to all opened tabs (live updating for all users). Not use socket.io all.
 5. Implement functionality for show message history, and load more
 messages when scroll chats to the top. (page size = 25)
 6. Please write tests on features where they are needed for you think.
+
+
+# install & RUN
+1. NPM INSTALL
+2. NPM START
