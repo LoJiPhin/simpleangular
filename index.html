@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html ng-app="chatApp">
+<html lang="en">
 <head>
-    <title>AngularJS Chat App</title>
-    <!-- Include AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <!-- Include your app.js file -->
-    <script src="app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
 </head>
-<body ng-controller="ChatController">
-    <div>
-        <ul>
-            <!-- Repeat for each message in the messages array -->
-            <li ng-repeat="message in messages">{{ message }}</li>
-        </ul>
-        <input type="text" ng-model="newMessage" />
-        <button ng-click="sendMessage()">Send</button>
+<body ng-app="chatApp" ng-controller="ChatController as chat">
+  <div class="chat-container">
+    <h1>Chat App</h1>
+    <div class="username-container" ng-show="chat.showUsernameInput">
+      <label for="username">Enter your name:</label>
+      <textarea id="username" ng-model="chat.username" rows="2"></textarea>
+      <button ng-click="chat.setUserName()">Join</button>
     </div>
+    
+    <div ng-show="!chat.showUsernameInput" class="chat-room" infinite-scroll="chat.loadMoreMessages()">
+      <ul class="message-list">
+        <li ng-repeat="message in chat.messages track by message.id" class="message" ng-class="{ 'from-current-user': chat.isMessageFromCurrentUser(message), 'from-other-user': !chat.isMessageFromCurrentUser(message) }">
+          <div class="message-block">
+            <div class="message-content">
+              <img ng-if="!chat.isMessageFromCurrentUser(message)" ng-src="avatar.jpeg" class="avatar" alt="Avatar">
+              <span ng-if="!chat.isMessageFromCurrentUser(message)" class="other-username">{{ message.username }}:</span>
+              <img ng-if="chat.isMessageFromCurrentUser(message)" ng-src="avatar.jpeg" class="avatar" alt="Avatar">
+              <span ng-if="chat.isMessageFromCurrentUser(message)" class="username">{{ message.username }}:</span>
+              <span>{{ message.text }}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <form ng-submit="chat.sendMessage()" class="message-form">
+        <input type="text" ng-model="chat.newMessage" placeholder="Enter your message" class="message-input">
+        <button type="submit" class="send-button">Send</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

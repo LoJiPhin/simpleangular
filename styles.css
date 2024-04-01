@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.username-container {
+  text-align: center;
+}
+
+.chat-room {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-list {
+  list-style: none;
+  padding: 0;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.other-username {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.from-current-user {
+  text-align: right;
+}
+
+.from-other-user {
+  text-align: left;
+}
+
+.message-form {
+  display: flex;
+}
+
+.message-input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.send-button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+#username {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.message-block {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px; /* Increase the border-radius for a more rounded appearance */
+  max-width: 70%; /* Limit the width of the message block */
+}
+
+.from-current-user {
+  background-color: #007bff; /* Blue color for messages from the current user */
+  color: white; /* White text color for better readability */
+  align-self: flex-end; /* Align message blocks from current user to the right */
+  text-align: right; /* Align text to the right */
+}
+
+.from-other-user {
+  background-color: #1e90ff; /* Sea color for messages from other users */
+  color: white; /* White text color for better readability */
+  align-self: flex-start; /* Align message blocks from other users to the left */
+}
+
+.avatar {
+  width: 30px; /* Set width of the avatar */
+  height: 30px; /* Set height of the avatar */
+  border-radius: 50%; /* Make the avatar round */
+  margin-right: 10px; /* Add margin to separate the avatar from the message text */
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+}
